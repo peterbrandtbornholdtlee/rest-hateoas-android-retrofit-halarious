@@ -1,0 +1,32 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "25.0.2"
+
+    defaultConfig {
+        applicationId "com.example.android.scheduler"
+        minSdkVersion 11
+        targetSdkVersion 18
+    }
+
+    dependencies {
+        compile 'com.android.support:support-v4:23.0.+'
+        compile 'com.squareup.retrofit2:retrofit:2.1.0'
+        compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+        compile 'com.google.code.gson:gson:2.8.0'
+        compile 'ch.halarious:halarious-core:0.14'
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
