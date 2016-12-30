@@ -25,7 +25,7 @@ import retrofit2.Retrofit;
     public List<Message> getMessages() {
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.10.108:8080")
+                .baseUrl("http://192.168.1.101:8080")
                 .addConverterFactory(HALConverterFactory.create(MessageList.class))
                 .build();
 
