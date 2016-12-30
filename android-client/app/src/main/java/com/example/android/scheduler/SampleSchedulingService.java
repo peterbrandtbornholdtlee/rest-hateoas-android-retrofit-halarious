@@ -6,6 +6,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
+import android.telephony.SmsManager;
 import android.util.Log;
 
 import com.example.android.scheduler.rest.Message;
@@ -50,6 +51,11 @@ public class SampleSchedulingService extends IntentService {
             for ( Message m : messages ) {
                 Log.d(TAG, "Telefone: " + m.getTelefone());
                 Log.d(TAG, "Body: " + m.getBody());
+
+                // Get the default instance of SmsManager
+                SmsManager smsManager = SmsManager.getDefault();
+                // Send a text based SMS
+                smsManager.sendTextMessage(m.getTelefone(), null, m.getBody(), null, null);
             }
         } else {
             Log.d(TAG, "No messages found!");
